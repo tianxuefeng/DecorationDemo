@@ -30,10 +30,10 @@ public class GridPinnedSectionDecoration extends RecyclerView.ItemDecoration {
         mContext = context;
         mCallback = callback;
         mBgPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mBgPaint.setColor(Color.WHITE);
+        mBgPaint.setColor(context.getResources().getColor(R.color.colorPrimaryDark));
 
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mTextPaint.setColor(Color.BLACK);
+        mTextPaint.setColor(Color.WHITE);
         mTextPaint.setTextSize(DisplayUtil.sp2px(mContext, 15));
         mTextPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
@@ -41,7 +41,7 @@ public class GridPinnedSectionDecoration extends RecyclerView.ItemDecoration {
         mTitlePaddingLeft = DisplayUtil.dip2px(mContext, 8);
 
         mPaint = new Paint();
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.TRANSPARENT);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class GridPinnedSectionDecoration extends RecyclerView.ItemDecoration {
                 Rect rect = new Rect();
                 mTextPaint.getTextBounds(c1, 0, 1, rect);
                 //画文字
-                c.drawText(c1, mTitlePaddingLeft, child.getTop() - (mTitleHeight / 3 - rect.height() / 2), mTextPaint);
+                c.drawText(c1, mTitlePaddingLeft, child.getTop() - (mTitleHeight / 2 - rect.height() / 2), mTextPaint);
             }
         }
     }

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mDataAdapter = new DataAdapter();
+        mDataAdapter = new DataAdapter(this);
         mDataAdapter.setItemClickListener(new OnItemClickListener<Object>() {
             @Override
             public void onItemClick(int position, Object data) {

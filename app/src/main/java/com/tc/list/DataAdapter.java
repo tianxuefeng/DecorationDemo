@@ -1,5 +1,7 @@
 package com.tc.list;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,11 @@ import com.tc.list.entity.DataEntity;
 public class DataAdapter extends BaseRecyclerViewAdapter<Object> {
     private static final int TYPE_DATA = 0;
     private static final int TYPE_EMPTY = 1;
+    private Context mContext;
+
+    public DataAdapter(Context context) {
+        mContext = context;
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,6 +43,7 @@ public class DataAdapter extends BaseRecyclerViewAdapter<Object> {
         Object itemData = mData.get(position);
         if (itemData instanceof DataEntity) {
             ((MViewHolder) holder).bind((DataEntity) itemData);
+            holder.itemView.setOnClickListener(mItemClickListener);
         }
     }
 
@@ -82,6 +90,15 @@ public class DataAdapter extends BaseRecyclerViewAdapter<Object> {
 //            Picasso.get().load(data.cover).into(ivCover);
         }
     }
+
+    private View.OnClickListener mItemClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent();
+            intent.setClass(mContext, DetailActivity.class);
+            mContext.startActivity(intent);
+        }
+    };
 
     private static class EmptyViewHolder extends RecyclerView.ViewHolder {
         public EmptyViewHolder(@NonNull View itemView) {
