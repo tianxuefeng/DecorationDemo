@@ -1,5 +1,6 @@
 package com.tc.list;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
                     String toastValue = "您点击了position=" + position + " categoryName="
                             + itemData.categoryName + " content=" + itemData.content;
                     Toast.makeText(MainActivity.this, toastValue, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, DetailActivity.class);
+                    startActivity(intent);
                 }
             }
         });

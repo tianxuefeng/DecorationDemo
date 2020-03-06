@@ -45,6 +45,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="15dp"
+                    android:onClick="onTest"
                     android:text="每个孩子都有自己的天赋，通过观察孩子的日常行为，可以推测天赋所在。推荐一份人民日报发布的孩子潜能自查表↓↓家长可以细心观察、耐心引导，带领孩子尝试不同的可能性，然后顺应天赋去努力。"
                     android:textSize="14sp" />
 
